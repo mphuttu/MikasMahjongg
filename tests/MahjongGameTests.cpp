@@ -57,6 +57,12 @@ static void VerifySolution(MahjongGame game)
 
 int main()
 {
+	assert(!MahjongGame::Matches(-1, -1));
+	assert(!MahjongGame::Matches(MahjongGame::FaceCount, MahjongGame::FaceCount));
+	assert(!MahjongGame::Matches(0, -1));
+	assert(!MahjongGame::Matches(MahjongGame::FaceCount, 0));
+	assert(MahjongGame::Matches(0, 0));
+	assert(MahjongGame::Matches(MahjongGame::FaceCount - 1, MahjongGame::FaceCount - 1));
 	{
 		MahjongGame game(42);
 		assert(game.NewGame());
@@ -73,6 +79,9 @@ int main()
 		stats.hints = 3; stats.undos = 2; stats.reshuffles = 1; stats.scoreRecorded = true;
 		std::ostringstream output;
 		assert(game.Save(output, stats));
+		std::ostringstream failedOutput;
+		failedOutput.setstate(std::ios::badbit);
+		assert(!game.Save(failedOutput, stats));
 		const std::string saved = output.str();
 		MahjongGame loaded(99);
 		GameStatistics restored;

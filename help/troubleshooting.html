@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Troubleshooting and FAQ</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Troubleshooting and FAQ</h1>
+<h2>Common problems</h2>
+<dl>
+<dt>Tile images could not be loaded</dt><dd>Check that the <code>res\tiles</code>
+folder and all PNG files are alongside the executable. Reinstall if files are
+missing. Do not move only the executable out of its installation folder.</dd>
+<dt>Help cannot be opened</dt><dd>Check that <code>Help-en.chm</code> and
+<code>Ohje-fi.chm</code> are beside the executable. Windows may block CHM
+content downloaded from the Internet: use the file's Properties dialog to
+unblock a trusted file, or reinstall it locally.</dd>
+<dt>Invalid or unreadable game file</dt><dd>Open a valid MikasMahjongg
+<code>.mahjongg</code> save; incomplete or unsupported files are rejected.
+Keep a separate backup before replacing an important save.</dd>
+<dt>Cannot save</dt><dd>Check the destination path, available space, and
+write permissions. Try a different folder. The game reports Windows error codes
+when a temporary file or replacement cannot be written.</dd>
+<dt>Invalid language configuration</dt><dd>Check <code>language.ini</code>:
+the <code>[Language]</code> section must specify <code>Code=en</code> or
+<code>Code=fi</code>. Restart after correcting the file.</dd>
+<dt>Hall of Fame error</dt><dd>Check that the current user can access its
+Windows registry profile. Corrupt results are reported rather than silently
+discarded; clearing the list removes all results after confirmation.</dd>
+</dl>
+<h2>Frequently asked questions</h2>
+<dl><dt>Does every deal have a solution?</dt><dd>Each new deal has a verified
+solution. A player's later choices can still lead to a dead end.</dd>
+<dt>Do hints prevent a Hall of Fame entry?</dt><dd>No. Hints, undos, and
+reshuffles are recorded, but assisted wins can qualify.</dd>
+<dt>Can I undo a reshuffle?</dt><dd>No. A successful reshuffle clears the
+undo history; restart restores the original deal.</dd>
+<dt>Why are some commands gray?</dt><dd>They are placeholders for features
+not implemented in the current version.</dd></dl>
+<p class="related"><strong>Related topics:</strong> <a href="technical.html">Technical information</a> |
+<a href="workflows.html">Examples</a></p></body></html>

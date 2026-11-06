@@ -18,6 +18,7 @@
 
 #include <cmath>
 #include <shellapi.h>
+#include <vector>
 #include <wincodec.h>
 
 #pragma comment(lib, "shell32.lib")
@@ -75,11 +76,11 @@ namespace
 {
 	bool GetExecutableDirectory(CString& directory)
 	{
-		wchar_t module[MAX_PATH];
-		const DWORD length = GetModuleFileNameW(nullptr, module, _countof(module));
-		if (length == 0 || length >= _countof(module))
+		std::vector<wchar_t> module(32768);
+		const DWORD length = GetModuleFileNameW(nullptr, module.data(), static_cast<DWORD>(module.size()));
+		if (length == 0 || length >= module.size())
 			return false;
-		directory = module;
+		directory = module.data();
 		const int separator = directory.ReverseFind(L'\\');
 		if (separator < 0)
 			return false;

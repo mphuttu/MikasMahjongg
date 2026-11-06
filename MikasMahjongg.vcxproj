@@ -254,7 +254,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\MikasMahjongg.ico" />
+    <Image Include="res\MJMain.ico" />
     <Image Include="res\MikasMahjonggDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar256.bmp" />

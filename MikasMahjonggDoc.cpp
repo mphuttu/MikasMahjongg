@@ -160,14 +160,15 @@ BOOL CMikasMahjonggDoc::OnSaveDocument(LPCTSTR path)
 		return FALSE;
 	}
 	const std::string data = stream.str();
-	wchar_t fullPath[32768], tempPath[32768];
-	const DWORD length = GetFullPathNameW(path, _countof(fullPath), fullPath, nullptr);
-	if (length == 0 || length >= _countof(fullPath))
+	std::vector<wchar_t> fullPath(32768);
+	wchar_t tempPath[MAX_PATH] = {};
+	const DWORD length = GetFullPathNameW(path, static_cast<DWORD>(fullPath.size()), fullPath.data(), nullptr);
+	if (length == 0 || length >= fullPath.size())
 	{
 		AfxMessageBox(Tr(L"Could not resolve the save path.", L"Tallennuspolkua ei voitu selvittää."), MB_ICONERROR);
 		return FALSE;
 	}
-	CString directory(fullPath);
+	CString directory(fullPath.data());
 	const int separator = directory.ReverseFind(L'\\');
 	if (separator < 0 || !GetTempFileNameW(directory.Left(separator + 1), L"mjg", 0, tempPath))
 	{
@@ -201,7 +202,7 @@ BOOL CMikasMahjonggDoc::OnSaveDocument(LPCTSTR path)
 			error = GetLastError();
 		}
 	}
-	if (success && !MoveFileExW(tempPath, fullPath, MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH))
+	if (success && !MoveFileExW(tempPath, fullPath.data(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH))
 	{
 		success = false;
 		error = GetLastError();

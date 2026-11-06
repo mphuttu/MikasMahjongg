@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Technical information</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Technical information</h1>
+<dl>
+<dt>Platform</dt><dd>The installer targets 64-bit Windows 10 or later. The
+application uses MFC, Direct2D, Windows Imaging Component, and the Microsoft
+Visual C++ runtime. The installer deploys its MFC and C++ runtime DLLs locally.</dd>
+<dt>Saved games</dt><dd><code>.mahjongg</code> files contain a versioned text
+representation of the deal, position, undo history, and statistics. The game
+validates their contents before loading. Do not edit them manually.</dd>
+<dt>Results and settings</dt><dd>The Hall of Fame is stored in the current
+Windows user's registry. Toolbar settings and recent-file lists are also
+user-specific; settings are separated by interface language.</dd>
+<dt>Images and help</dt><dd>PNG tiles are loaded from <code>res\tiles</code>
+beside the executable. The two CHM files and <code>language.ini</code> are
+also expected alongside the executable.</dd>
+<dt>Architecture</dt><dd>The game model implements tile matching and deals;
+the MFC document owns the game and clock, while the Direct2D view draws the
+board and handles input. The application is a desktop single-player game.</dd>
+</dl>
+<p class="related"><strong>Related topics:</strong> <a href="troubleshooting.html">Troubleshooting</a> |
+<a href="credits.html">Credits</a> | <a href="release-notes.html">Release notes</a></p>
+</body></html>

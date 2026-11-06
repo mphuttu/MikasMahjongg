@@ -1,0 +1,10 @@
+body { font: 10pt/1.5 "Segoe UI", Arial, sans-serif; color: #242424; background: #fff; margin: 20px; }
+h1 { color: #075b36; font-size: 19pt; }
+h2 { color: #075b36; font-size: 13pt; margin-top: 20px; }
+h3 { font-size: 11pt; }
+dt { font-weight: bold; margin-top: 10px; }
+dd { margin-left: 18px; }
+.note { border-left: 3px solid #38805d; padding: 5px 10px; background: #f0f7f2; }
+.warning { border-left: 3px solid #b66b00; padding: 5px 10px; background: #fff8e9; }
+.related { border-top: 1px solid #ccc; padding-top: 10px; margin-top: 24px; }
+code { font-family: Consolas, monospace; }

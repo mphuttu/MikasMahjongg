@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Localization.h"
 
+#include <vector>
+
 namespace
 {
 	bool finnish = false;
@@ -8,14 +10,14 @@ namespace
 
 bool ConfigureLanguage()
 {
-	wchar_t module[32768];
-	const DWORD length = GetModuleFileNameW(nullptr, module, _countof(module));
-	if (length == 0 || length >= _countof(module))
+	std::vector<wchar_t> module(32768);
+	const DWORD length = GetModuleFileNameW(nullptr, module.data(), static_cast<DWORD>(module.size()));
+	if (length == 0 || length >= module.size())
 	{
 		AfxMessageBox(L"Could not locate the language configuration.", MB_ICONERROR);
 		return false;
 	}
-	CString path(module);
+	CString path(module.data());
 	const int separator = path.ReverseFind(L'\\');
 	if (separator < 0)
 	{

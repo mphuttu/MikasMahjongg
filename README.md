@@ -1,133 +1,137 @@
 # MikasMahjongg
 
-Windowsin MFC- ja Direct2D-mahjongg-pasianssi. Projekti tarvitsee Visual
-Studio 2026:n C++- ja MFC-työkalut sekä Windows SDK:n. Peli on saanut
-innoituksensa Ron Balewskin Mahjongg-pelistä.
+MikasMahjongg is a Windows Mahjong solitaire game built with C++, MFC, and
+Direct2D. It was inspired by Ron Balewski's Mahjongg. Match free tile pairs to
+clear the classic 144-tile turtle layout.
 
-**English:** MikasMahjongg is a Windows Mahjong solitaire game built with C++,
-MFC, and Direct2D, inspired by Ron Balewski's Mahjongg. It features the classic
-turtle layout, solvable deals, save and load, undo, hints, reshuffling, a Hall of
-Fame, and Finnish and English interfaces and help. Build with Visual Studio
-2026's C++ and MFC tools and the Windows SDK; the x64 installer is built with
-Inno Setup 6. The sections below contain detailed build and playing instructions.
+## Features
 
-## Kääntäminen
+- Solvable starting deals and layered tile graphics.
+- Save and load games, restart the original deal, and undo removed pairs.
+- Hints, remaining-tile count, and solvable reshuffles where possible.
+- Timed play, pause animation, victory celebration, and a ten-entry Hall of Fame.
+- English and Finnish interfaces and compiled help.
 
-Avaa
-`MikasMahjongg.slnx` ja käännä esimerkiksi `Debug | x64`. Projekti kopioi
-PNG-laatat suoritettavan tiedoston viereen hakemistoon `res\tiles` sekä
-suomen- ja englanninkieliset CHM-ohjeet. Peli avaa valitun kielen ohjeen
-valinnalla **Ohje > Ohjeen sisältö** tai **Help > Help Contents**.
+Hints indicate a legal move, not necessarily a winning move. A successful
+reshuffle clears undo history. Wins using assists can still qualify for the
+Hall of Fame. Sound, printing, and other grayed-out menu commands are not
+implemented.
 
-## Kielivalinta ja asennus
+## Requirements and installation
 
-64-bittiselle Windows 10:lle tai uudemmalle voi rakentaa asennusohjelman
-polkuun `dist\MikasMahjongg-Setup-x64.exe` alla olevilla ohjeilla.
-Rakennustuotokset ja asennusohjelma eivät kuulu lähdekoodirepositorioon.
-Asennusohjelman kielivalinta määrittää
-myös pelin kielen. Asennus on käyttäjäkohtainen eikä vaadi järjestelmänlaajuista
-VC++-asennusta: tarvittavat x64 MFC- ja VC++-ajonaikaiset DLL:t asennetaan
-pelin omaan kansioon. Windowsin omien dialogien ja järjestelmäpainikkeiden
-kieli voi riippua Windowsin kieliasetuksista. MFC:n työkalurivien
-mukautusikkuna on suomenkielisessäkin versiossa englanniksi.
+The installer targets 64-bit Windows 10 or later. It is a per-user installation
+and includes the necessary x64 Microsoft C++ and MFC runtime DLLs alongside the
+application. After building it as described below, run
+`dist\MikasMahjongg-Setup-x64.exe` and select English or Finnish. The same
+selection determines the application's language.
 
-Asennus tallentaa kielen ohjelmakansion `language.ini`-tiedostoon:
-`[Language]`-osiossa `Code=fi` tai `Code=en`. Ilman asetustiedostoa
-kehitysversio käyttää englantia. Kielen vaihtaminen edellyttää ohjelman
-uudelleenkäynnistystä. Valikkojen ja työkalurivien mukautukset tallennetaan
-kielikohtaisesti; kunniataulu on yhteinen.
+The installer writes `language.ini` beside the executable, with `Code=en` or
+`Code=fi` in its `[Language]` section. Without that file the application
+defaults to English. Restart after changing it. Windows-owned dialogs can
+follow the Windows display language; MFC's toolbar customization dialog is
+English even when the game is Finnish.
 
-## Ohjeiden ja asennusohjelman rakentaminen
+## Building
 
-Muokkaa tarvittaessa `help\fi.html`- ja `help\en.html`-lähteitä ja käännä
-ohjeet HTML Help Workshopilla ennen sovellusta:
+Dependencies:
+
+- Visual Studio 2026 Community with the C++ desktop workload, MFC components,
+  the v145 toolset, and a Windows SDK.
+- HTML Help Workshop to rebuild the CHM files.
+- Inno Setup 6 to build the x64 installer.
+
+Open `MikasMahjongg.slnx` and build `Debug | x64` or `Release | x64`.
+The solution also exposes an `x86` platform. The project copies the tile PNGs,
+credits, and both compiled help files next to the executable. Prebuilt CHM files
+are included in the repository; rebuild them after editing help sources:
 
 ```powershell
 & 'C:\Program Files (x86)\HTML Help Workshop\hhc.exe' 'help\fi.hhp'
 & 'C:\Program Files (x86)\HTML Help Workshop\hhc.exe' 'help\en.hhp'
 ```
 
-HTML Help Compiler käyttää onnistumiselle poistumiskoodia 1. Tarkista myös,
-että `Ohje-fi.chm` ja `Help-en.chm` syntyivät ilman kääntäjän virheitä.
-Käännä sitten sovellus asetuksella `Release | x64` ja suorita:
+HTML Help Compiler returns exit code **1** on success; inspect its output and
+the generated files for errors. To build the installer, first build
+`Release | x64`, then run:
 
 ```powershell
 & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' 'MikasMahjongg.iss'
 ```
 
-Asennusskripti käyttää oletuksena Visual Studio 2026:n mukana tulevia
-version 14.51.36231 x64-ajonaikaisia tiedostoja. Jos käytössä on toinen
-työkalusarjan versio, anna vastaavan ajonaikaisen version x64-hakemisto
-Inno Setupin `/DRedistRoot=...`-parametrilla. Sen on vastattava sovelluksen
-käännöksessä käytettyä työkalusarjaa.
+The installer script defaults to the Visual Studio 2026 x64 redistributables
+at version `14.51.36231`. If using another toolset version, pass its matching
+redistributable x64 directory through Inno Setup's `/DRedistRoot=...` option.
+Build output and the generated installer are not committed.
 
-## Pelaaminen
+## Tests
 
-Valitse hiirellä kaksi vapaata, yhteensopivaa laattaa. Laatta on vapaa,
-kun sen päällä ei ole toista laattaa ja sen vasen tai oikea sivu on vapaa.
-Kukat sopivat keskenään, kuten myös vuodenajat; muiden laattojen tulee
-olla samanlaisia.
-Saman kerroksen laattapinnat ovat kiinni toisissaan; näkyvät sivut ja
-ylempien kerrosten siirtymä erottavat kerrokset.
-
-- **File > New Game** (Ctrl+N): uusi peli.
-- **File > Load Game / Save Game / Save As**: lataa tai tallenna peli
-  `.mahjongg`-tiedostona. Tallennus sisältää peliajan, alkuperäisen jaon ja
-  kumoamishistorian.
-- **File > Restart Game** tai työkalurivin **Restart**: aloita sama jako alusta.
-- **Edit > Undo** (Ctrl+Z) tai **Backup > Backup**: kumoa viimeisin pari.
-- **Help > Show Moves**: korosta yksi mahdollinen pari.
-- **Help > Tiles Left**: näytä jäljellä olevien laattojen määrä.
-- **Help > Resuffle**: järjestä jäljellä olevat laatat uudelleen. Onnistunut
-  sekoitus on ratkaistavissa ja tyhjentää kumoamishistorian. Jos nykyiseen
-  muotoon ei löydy ratkaisujärjestystä, peli pysyy ennallaan; kumoa siirtoja
-  ja yritä uudelleen.
-- **Special > Pause** (Alt+P): pysäytä aika ja näytä taukoanimaatio.
-- **Special > View Hall of Fame**: näytä kymmenen nopeinta voittoa.
-  **Clear Hall of Fame** poistaa koko tuloslistan vahvistuksen jälkeen.
-
-Kaikki voitot kelpaavat tuloslistalle myös vihjeitä, kumoamista ja sekoitusta
-käytettäessä. Tulokset tallennetaan nykyisen Windows-käyttäjän rekisteriin.
-Keskeneräisen pelin sulkeminen tai vaihtaminen kysyy tallennetaanko se.
-
-Uusi peli ja onnistunut sekoitus muodostetaan poistamalla vapaita paikkapareja
-ja jakamalla yhteensopivat laatat tällä poistojärjestyksellä. Alkuasetelmalla
-on siis vahvistettu ratkaisu, mutta kaikki pelaajan tekemien siirtojen jälkeiset
-asemat eivät välttämättä ole ratkaistavissa. Vihje näyttää mahdollisen siirron,
-ei välttämättä voittoon johtavaa siirtoa.
-
-Äänet ja muut harmaat valikkotoiminnot eivät vielä kuulu tähän versioon.
-Vanhan pelin suoritettavaa tiedostoa tai lähdekoodia ei toimiteta tämän
-projektin mukana.
-
-## Pelilogiikan testit
-
-Esimerkiksi MinGW:n komentokehotteessa:
+The repository contains two standalone automated test executables. They are
+not separate Visual Studio solution projects. Run the game-model and geometry
+tests, for example, in a MinGW command prompt:
 
 ```text
 g++ -std=c++14 -O2 MahjongGame.cpp tests\MahjongGameTests.cpp -o MahjongGameTests.exe
 MahjongGameTests.exe
 ```
 
-Testit tarkistavat tallennuksen, latauksen ja uudelleenaloituksen sekä
-kilpikonna-asetelman, laattajakauman, vapaussäännöt ja
-100 uuden pelin sekä uudelleensekoituksen poistoketjut. Ne tarkistavat myös
-laattojen kerrossiirtymät ja sen, että asetelma mahtuu erikokoisiin näkymiin.
+They exercise the layout, matching, free-tile rules, save/load validation,
+restart, undo, geometry, and 100 generated deals and reshuffles. Keep assertions
+enabled: do not compile these tests with `NDEBUG`.
 
-Hall of Famen testit voi kääntää Visual Studion x64 Native Tools
--komentokehotteessa:
+Run the Hall of Fame tests in a Visual Studio x64 Native Tools command prompt:
 
 ```text
 cl /nologo /utf-8 /EHsc /MDd /D_DEBUG /D_AFXDLL /D_UNICODE /DUNICODE /I. HallOfFame.cpp Localization.cpp tests\HallOfFameTests.cpp /FeHallOfFameTests.exe
 HallOfFameTests.exe
 ```
 
-Testi käyttää omaa väliaikaista rekisteriavaintaan eikä muuta pelin tuloslistaa.
+Those tests use a temporary registry key, not the game's Hall of Fame.
 
-## Tekijätiedot
+## Documentation
 
-Copyright (c) Mika Huttunen. Mahjong tileset designed by Code Inferno
-([www.codeinferno.com](http://www.codeinferno.com)).
-Lähde: [OpenGameArt.org](https://opengameart.org/content/mahjong-tileset).
-Laattojen lisenssi on [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
-Lisätiedot toimitetaan myös tiedostossa `CREDITS.txt`.
+The English help starts at [Welcome](help/en.html) and includes
+[getting started](help/getting-started.html), [rules](help/rules.html),
+[feature reference](help/commands.html), [configuration](help/settings.html),
+[examples](help/workflows.html), [troubleshooting and FAQ](help/troubleshooting.html),
+[technical information](help/technical.html), and [release notes](help/release-notes.html).
+The Finnish guide is [here](help/fi.html). Open the appropriate CHM from
+**Help > Help Contents** in the game.
+
+## Screenshots
+
+No project screenshot is currently included. A screenshot can be added here
+after capturing the application without personal or unrelated desktop content.
+
+## Troubleshooting
+
+- **Missing tiles or help:** keep `res\tiles`, `Help-en.chm`, and
+  `Ohje-fi.chm` alongside the executable, or reinstall the game.
+- **Help opens blank:** Windows may block a downloaded CHM. Unblock the trusted
+  file through Properties or reinstall it locally.
+- **Cannot save or load:** check the path and permissions, and select a valid
+  `.mahjongg` file. Keep a separate backup of important saved games.
+- **Wrong or invalid language:** check `language.ini` and restart the game.
+- **No moves remain:** undo, try a reshuffle, or restart the original deal.
+
+See the [troubleshooting and FAQ](help/troubleshooting.html) for more detail.
+
+## Contributions
+
+Report reproducible issues with the Windows version, build configuration,
+steps to reproduce, and any relevant error message. Contributions should keep
+the existing C++/MFC conventions, add regression tests for behavior changes,
+and update the help when user-visible behavior changes. Build the solution and
+run both test executables before proposing changes. Do not commit generated
+build output, local saves, user-specific settings, or third-party executables.
+
+## Credits and licensing
+
+Copyright (c) Mika Huttunen. The game is inspired by Ron Balewski's Mahjongg;
+the original game's executable and source code are not distributed here.
+
+Mahjong tileset designed by Code Inferno ([www.codeinferno.com](http://www.codeinferno.com)).
+Source: [OpenGameArt.org](https://opengameart.org/content/mahjong-tileset).
+The tileset is licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+See [CREDITS.txt](CREDITS.txt). That graphics license does not establish a
+license for the application's source code; no source-code license is specified
+in this repository.

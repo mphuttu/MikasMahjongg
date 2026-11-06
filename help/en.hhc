@@ -1,8 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <HTML><HEAD><meta name="GENERATOR" content="Microsoft HTML Help Workshop"></HEAD>
 <BODY><UL>
-<LI><OBJECT type="text/sitemap">
-<param name="Name" value="Game help">
-<param name="Local" value="en.html">
-</OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Welcome"><param name="Local" value="en.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Getting started"><param name="Local" value="getting-started.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Rules and tile matching"><param name="Local" value="rules.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Feature reference"><param name="Local" value="commands.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Configuration"><param name="Local" value="settings.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Examples and tips"><param name="Local" value="workflows.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Troubleshooting and FAQ"><param name="Local" value="troubleshooting.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Technical information"><param name="Local" value="technical.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Release notes"><param name="Local" value="release-notes.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Credits"><param name="Local" value="credits.html"></OBJECT>
 </UL></BODY></HTML>

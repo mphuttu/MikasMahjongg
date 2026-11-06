@@ -2,6 +2,7 @@
 Compatibility=1.1 or later
 Compiled file=..\Help-en.chm
 Contents file=en.hhc
+Index file=en.hhk
 Default topic=en.html
 Display compile progress=Yes
 Language=0x409 English (United States)
@@ -9,3 +10,13 @@ Title=MikasMahjongg
 
 [FILES]
 en.html
+style.css
+getting-started.html
+rules.html
+commands.html
+settings.html
+workflows.html
+troubleshooting.html
+technical.html
+release-notes.html
+credits.html

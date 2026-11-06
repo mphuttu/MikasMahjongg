@@ -31,6 +31,8 @@ MahjongGame::MahjongGame(unsigned int seed) : random_(seed)
 
 bool MahjongGame::Matches(int first, int second)
 {
+	if (first < 0 || first >= FaceCount || second < 0 || second >= FaceCount)
+		return false;
 	return first == second ||
 		(first >= 34 && first < 38 && second >= 34 && second < 38) ||
 		(first >= 38 && first < 42 && second >= 38 && second < 42);

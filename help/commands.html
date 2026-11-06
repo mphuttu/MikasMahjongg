@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Feature reference</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Feature reference</h1>
+<dl>
+<dt>File &gt; New Game (Ctrl+N)</dt><dd>Creates a new solvable deal. An
+unfinished game can be saved before it is replaced.</dd>
+<dt>File &gt; Load Game (Ctrl+O)</dt><dd>Opens a saved <code>.mahjongg</code>
+file. Choose a valid file in the Open dialog. The current unfinished game can
+be saved first.</dd>
+<dt>File &gt; Save Game (Ctrl+S) / Save As</dt><dd>Saves the current position,
+elapsed time, statistics, original deal, and undo history. Save As writes a
+new file. For example, save before quitting and load that file to continue.</dd>
+<dt>File &gt; Restart Game / Restart toolbar button</dt><dd>Restores the
+original deal and resets the timer and statistics. The game prompts before
+replacing an unfinished position.</dd>
+<dt>Edit &gt; Undo (Ctrl+Z) / Backup</dt><dd>Restores the last removed pair.
+Repeat to undo earlier moves. A successful reshuffle clears the undo history.</dd>
+<dt>Help &gt; Show Moves</dt><dd>Highlights an available matching pair. A hint
+is a legal move, not a guarantee of victory, and is counted in the statistics.</dd>
+<dt>Help &gt; Tiles Left</dt><dd>Displays the number of tiles remaining.</dd>
+<dt>Help &gt; Resuffle</dt><dd>Rearranges remaining tiles into a solvable
+position when possible. The existing position is preserved if no solution is
+found; undo moves and try again. The menu uses the spelling shown here.</dd>
+<dt>Special &gt; Pause (Alt+P)</dt><dd>Stops the clock and displays an animation.
+Select OK to resume. The clock also stops while a saved game is closed.</dd>
+<dt>Special &gt; View Hall of Fame</dt><dd>Shows the ten fastest recorded wins
+and their hint, undo, and shuffle counts. Wins with assistance can qualify.
+A qualifying player is prompted for a name after the victory animation.</dd>
+<dt>Special &gt; Clear Hall of Fame</dt><dd>After confirmation, removes the
+entire list for the current Windows user.</dd>
+<dt>Help &gt; Help Contents</dt><dd>Opens this help file. The installed
+language determines which help file opens.</dd>
+</dl>
+<p>When no moves remain, the game offers to restart the same deal. After a
+win, a six-second celebration runs without adding to the game time; the game
+then offers a new game or exit.</p>
+<p class="warning"><strong>Note:</strong> Grayed-out menu items, including
+preferences and printing, are not implemented in this version.</p>
+<p class="related"><strong>Related topics:</strong> <a href="rules.html">Rules</a> |
+<a href="settings.html">Configuration</a> | <a href="workflows.html">Examples</a></p>
+</body></html>
