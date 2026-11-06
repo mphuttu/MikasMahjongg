@@ -1,0 +1,26 @@
+# Visual Studio user settings and caches
+.vs/
+*.user
+*.suo
+*.aps
+
+# Build and installer output
+/Debug/
+/Release/
+/x64/
+/MikasMahjongg/Debug/
+/MikasMahjongg/Release/
+/MikasMahjongg/x64/
+/dist/
+*.obj
+*.pdb
+*.ilk
+*.pch
+*.exe
+
+# Local game configuration and saved games
+language.ini
+*.mahjongg
+
+# Third-party reference executable, not part of this project
+/reverse/

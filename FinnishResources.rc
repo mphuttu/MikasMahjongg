@@ -1,0 +1,169 @@
+#pragma code_page(65001)
+#include "resource.h"
+#include <afxres.h>
+#include <commctrl.h>
+
+LANGUAGE LANG_FINNISH, SUBLANG_DEFAULT
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&Peli"
+    BEGIN
+        MENUITEM "&Lataa peli...\tCtrl+O", ID_FILE_OPEN
+        MENUITEM "&Tallenna peli\tCtrl+S", ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Uusi peli\tCtrl+N", ID_FILE_NEW
+        MENUITEM "Uusi numeroitu peli...", ID_FILE_NEWNUMBEREDGAME
+        MENUITEM "Aloita sama peli alusta", ID_FILE_RESTARTGAME
+        MENUITEM "Valmis", ID_FILE_DONE
+        MENUITEM "Tallenna &nimellä...", ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Tulosta...\tCtrl+P", ID_FILE_PRINT
+        MENUITEM "Tulostuksen &esikatselu", ID_FILE_PRINT_PREVIEW
+        MENUITEM "Tulostimen &asetukset...", ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Viimeksi avattu", ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Lopeta", ID_APP_EXIT
+    END
+    POPUP "&Muokkaa"
+    BEGIN
+        MENUITEM "&Kumoa\tCtrl+Z", ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Leikkaa\tCtrl+X", ID_EDIT_CUT
+        MENUITEM "&Kopioi\tCtrl+C", ID_EDIT_COPY
+        MENUITEM "L&iitä\tCtrl+V", ID_EDIT_PASTE
+    END
+    POPUP "&Näytä"
+    BEGIN
+        POPUP "&Työkalurivit ja kiinnitettävät ikkunat"
+        BEGIN
+            MENUITEM "<paikkamerkki>", ID_VIEW_TOOLBAR
+        END
+        MENUITEM "&Tilarivi", ID_VIEW_STATUS_BAR
+    END
+    POPUP "Asetukset"
+    BEGIN
+        MENUITEM "Siirtojen tarkistus", ID_PREFERENCES_MOVECHECK, CHECKED
+        MENUITEM "Laatikkokohdistin", ID_PREFERENCES_BOXCURSOR, CHECKED
+        MENUITEM "Varoitukset", ID_PREFERENCES_WARNINGBOXES, CHECKED
+        MENUITEM "Automaattinen tauko", ID_PREFERENCES_AUTOPAUSE, CHECKED
+        MENUITEM "Äänet", ID_PREFERENCES_SOUND, CHECKED
+        MENUITEM "Valitse äänet", ID_PREFERENCES_SELECTWAVES, CHECKED
+        MENUITEM "Kiinteä tausta", ID_PREFERENCES_FIXEDBACKGROUND, CHECKED
+        MENUITEM "Koko näyttö", ID_PREFERENCES_FULLSCREEN, CHECKED
+    END
+    POPUP "Kumoa"
+    BEGIN
+        MENUITEM "Kumoa siirto", ID_BACKUP_BACKUP
+        POPUP "Aseta merkki"
+        BEGIN
+            MENUITEM "1", ID_SETMARK_1
+            MENUITEM "2", ID_SETMARK_2
+            MENUITEM "3", ID_SETMARK_3
+            MENUITEM "4", ID_SETMARK_4
+        END
+        POPUP "Siirry merkkiin"
+        BEGIN
+            MENUITEM "1", ID_GOTOMARK_1
+            MENUITEM "2", ID_GOTOMARK_2
+            MENUITEM "3", ID_GOTOMARK_3
+            MENUITEM "4", ID_GOTOMARK_4
+        END
+    END
+    POPUP "Erikoistoiminnot"
+    BEGIN
+        MENUITEM "Näytä kunniataulu", ID_SPECIAL_VIEWHALLOFFAME
+        MENUITEM "Tyhjennä kunniataulu", ID_SPECIAL_CLEARHALLOFFAME
+        MENUITEM "Tauko\tAlt+P", ID_SPECIAL_PAUSE
+    END
+    POPUP "&Ohje"
+    BEGIN
+        MENUITEM "Näytä siirto", ID_HELP_SHOWMOVES
+        MENUITEM "Laattoja jäljellä", ID_HELP_TILESLEFT
+        MENUITEM "Sekoita", ID_HELP_RESUFFLE
+        MENUITEM SEPARATOR
+        MENUITEM "Ohjeen sisältö", ID_HELP_HELPCONTENTS
+        MENUITEM "&Tietoja MikasMahjonggista...", ID_APP_ABOUT
+    END
+END
+
+IDR_POPUP_EDIT MENU
+BEGIN
+    POPUP "Muokkaa"
+    BEGIN
+        MENUITEM "&Leikkaa\tCtrl+X", ID_EDIT_CUT
+        MENUITEM "&Kopioi\tCtrl+C", ID_EDIT_COPY
+        MENUITEM "L&iitä\tCtrl+V", ID_EDIT_PASTE
+    END
+END
+
+IDR_HELP_MENU MENU
+BEGIN
+    MENUITEM "&Tietoja MikasMahjonggista...", ID_APP_ABOUT
+END
+
+IDD_GAME_ABOUT DIALOGEX 0, 0, 260, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Tietoja MikasMahjonggista"
+FONT 9, "Segoe UI"
+BEGIN
+    ICON IDR_MAINFRAME, -1, 10, 10, 21, 20
+    LTEXT "MikasMahjongg, versio 1.0", -1, 40, 10, 210, 10
+    LTEXT "Copyright (c) Mika Huttunen", -1, 40, 24, 210, 10
+    LTEXT "Includes third-party graphics by CodeInfernoGames,", -1, 10, 43, 240, 10
+    LTEXT "used under the CC BY 3.0 license.", -1, 10, 54, 240, 10
+    DEFPUSHBUTTON "OK", IDOK, 200, 78, 50, 14
+END
+
+IDD_HALL_OF_FAME DIALOGEX 0, 0, 380, 210
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Kunniataulu"
+FONT 9, "Segoe UI"
+BEGIN
+    CONTROL "", IDC_HALL_LIST, WC_LISTVIEW, WS_TABSTOP | WS_BORDER | LVS_REPORT | LVS_SINGLESEL, 8, 8, 364, 170
+    DEFPUSHBUTTON "OK", IDOK, 322, 187, 50, 14
+END
+
+IDD_HALL_NAME DIALOGEX 0, 0, 230, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Kunniataulu"
+FONT 9, "Segoe UI"
+BEGIN
+    LTEXT "Onneksi olkoon! Kirjoita nimesi:", -1, 8, 8, 214, 12
+    EDITTEXT IDC_HALL_NAME, 8, 23, 214, 14, ES_AUTOHSCROLL
+    DEFPUSHBUTTON "OK", IDOK, 116, 52, 50, 14
+    PUSHBUTTON "Peruuta", IDCANCEL, 172, 52, 50, 14
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME "MikasMahjongg\n\nMikasMahjongg\n\n\nMikasMahjongg.Document\nMikasMahjongg.Document"
+    AFX_IDS_APP_TITLE "MikasMahjongg"
+    AFX_IDS_IDLEMESSAGE "Valmis"
+    IDP_OLE_INIT_FAILED "OLE-alustus epäonnistui. Tarkista OLE-kirjastojen versiot."
+    ID_FILE_NEW "Aloita uusi peli\nUusi"
+    ID_FILE_OPEN "Lataa tallennettu peli\nAvaa"
+    ID_FILE_SAVE "Tallenna peli\nTallenna"
+    ID_FILE_SAVE_AS "Tallenna peli uudella nimellä\nTallenna nimellä"
+    ID_FILE_RESTARTGAME "Aloita sama peli alusta\nAlusta"
+    ID_BACKUP_BACKUP "Kumoa viimeinen pari\nKumoa"
+    ID_HELP_SHOWMOVES "Näytä mahdollinen pari\nVihje"
+    ID_HELP_TILESLEFT "Näytä jäljellä olevien laattojen määrä\nLaattoja jäljellä"
+    ID_HELP_RESUFFLE "Sekoita jäljellä olevat laatat\nSekoita"
+    ID_HELP_HELPCONTENTS "Avaa peliohje\nOhje"
+    ID_SPECIAL_VIEWHALLOFFAME "Näytä nopeimmat voitot\nKunniataulu"
+    ID_SPECIAL_CLEARHALLOFFAME "Tyhjennä kunniataulu\nTyhjennä kunniataulu"
+    ID_SPECIAL_PAUSE "Pysäytä peli tauolle\nTauko"
+    ID_EDIT_UNDO "Kumoa viimeinen siirto\nKumoa"
+    ID_EDIT_CUT "Leikkaa valinta\nLeikkaa"
+    ID_EDIT_COPY "Kopioi valinta\nKopioi"
+    ID_EDIT_PASTE "Liitä leikepöydän sisältö\nLiitä"
+    ID_FILE_PRINT "Tulosta peli\nTulosta"
+    ID_APP_ABOUT "Näytä ohjelman tiedot\nTietoja"
+    ID_APP_EXIT "Lopeta ohjelma\nLopeta"
+    ID_VIEW_STATUS_BAR "Näytä tai piilota tilarivi\nTilarivi"
+    IDS_TOOLBAR_STANDARD "Vakio"
+    IDS_TOOLBAR_CUSTOMIZE "Mukauta..."
+    IDS_EDIT_MENU "Muokkaa"
+END

@@ -1,0 +1,9 @@
+MikasMahjongg
+Copyright (c) Mika Huttunen
+
+Includes third-party graphics by CodeInfernoGames,
+used under the CC BY 3.0 license.
+
+Mahjong tileset designed by Code Inferno www.codeinferno.com
+Source: https://opengameart.org/content/mahjong-tileset
+License: https://creativecommons.org/licenses/by/3.0/

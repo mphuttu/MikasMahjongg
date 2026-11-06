@@ -1,0 +1,11 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=..\Ohje-fi.chm
+Contents file=fi.hhc
+Default topic=fi.html
+Display compile progress=Yes
+Language=0x40b Finnish
+Title=MikasMahjongg
+
+[FILES]
+fi.html

@@ -1,0 +1,11 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=..\Help-en.chm
+Contents file=en.hhc
+Default topic=en.html
+Display compile progress=Yes
+Language=0x409 English (United States)
+Title=MikasMahjongg
+
+[FILES]
+en.html

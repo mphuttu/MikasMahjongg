@@ -1,0 +1,51 @@
+#include "resource.h"
+#include <afxres.h>
+#include <commctrl.h>
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+IDD_GAME_ABOUT DIALOGEX 0, 0, 260, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About MikasMahjongg"
+FONT 9, "Segoe UI"
+BEGIN
+    ICON IDR_MAINFRAME, -1, 10, 10, 21, 20
+    LTEXT "MikasMahjongg, Version 1.0", -1, 40, 10, 210, 10
+    LTEXT "Copyright (c) Mika Huttunen", -1, 40, 24, 210, 10
+    LTEXT "Includes third-party graphics by CodeInfernoGames,", -1, 10, 43, 240, 10
+    LTEXT "used under the CC BY 3.0 license.", -1, 10, 54, 240, 10
+    DEFPUSHBUTTON "OK", IDOK, 200, 78, 50, 14
+END
+
+STRINGTABLE
+BEGIN
+    ID_BACKUP_BACKUP "Undo the last pair\nBackup"
+    ID_FILE_RESTARTGAME "Restart the current game\nRestart"
+    ID_HELP_SHOWMOVES "Show an available pair\nHint"
+    ID_HELP_TILESLEFT "Show the number of remaining tiles\nTiles Left"
+    ID_HELP_RESUFFLE "Shuffle remaining tiles\nShuffle"
+    ID_HELP_HELPCONTENTS "Open game help\nHelp"
+    ID_SPECIAL_VIEWHALLOFFAME "Show the fastest wins\nHall of Fame"
+    ID_SPECIAL_CLEARHALLOFFAME "Clear the Hall of Fame\nClear Hall of Fame"
+    ID_SPECIAL_PAUSE "Pause the game\nPause"
+END
+
+IDD_HALL_OF_FAME DIALOGEX 0, 0, 380, 210
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hall of Fame"
+FONT 9, "Segoe UI"
+BEGIN
+    CONTROL "", IDC_HALL_LIST, WC_LISTVIEW, WS_TABSTOP | WS_BORDER | LVS_REPORT | LVS_SINGLESEL, 8, 8, 364, 170
+    DEFPUSHBUTTON "OK", IDOK, 322, 187, 50, 14
+END
+
+IDD_HALL_NAME DIALOGEX 0, 0, 230, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hall of Fame"
+FONT 9, "Segoe UI"
+BEGIN
+    LTEXT "Congratulations! Enter your name:", -1, 8, 8, 214, 12
+    EDITTEXT IDC_HALL_NAME, 8, 23, 214, 14, ES_AUTOHSCROLL
+    DEFPUSHBUTTON "OK", IDOK, 116, 52, 50, 14
+    PUSHBUTTON "Cancel", IDCANCEL, 172, 52, 50, 14
+END

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mika's Mahjongg – peliohje</title>
+  <style>
+    body { font: 1.05rem/1.6 "Segoe UI", sans-serif; color: #242424; background: #f7f5ed; margin: 0; }
+    main { max-width: 52rem; margin: auto; padding: 2rem; }
+    h1, h2 { color: #075b36; }
+    dt { font-weight: bold; margin-top: 0.8rem; }
+    dd { margin-left: 1rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Mika's Mahjongg – peliohje</h1>
+  <p>Peli on saanut innoituksensa Ron Balewskin Mahjongg-pelistä.</p>
+  <h2>Pelin tavoite</h2>
+  <p>Poista kaikki 144 laattaa kilpikonna-asetelmasta valitsemalla hiirellä
+  kaksi yhteensopivaa vapaata laattaa. Valittu laatta merkitään keltaisella.
+  Saman laatan napsauttaminen uudelleen peruuttaa valinnan.</p>
+
+  <h2>Vapaat laatat ja parit</h2>
+  <p>Laatta on vapaa, kun sen päällä ei ole toista laattaa ja vähintään toinen
+  sen sivuista, vasen tai oikea, on vapaa. Saman kerroksen laattapinnat
+  ovat kiinni toisissaan. Näkyvät sivut ja ylempien kerrosten siirtymä
+  auttavat erottamaan päällekkäiset laatat. Vain vapaata laattaa voi valita.</p>
+  <p>Bambu-, ympyrä-, numero-, tuuli- ja lohikäärmelaatat sopivat pareiksi
+  samanlaisen laatan kanssa. Mikä tahansa kukka sopii yhteen toisen kukan
+  kanssa, ja mikä tahansa vuodenaika toisen vuodenajan kanssa.</p>
+
+  <h2>Valikot</h2>
+  <dl>
+    <dt>Peli &gt; Uusi peli (Ctrl+N)</dt>
+    <dd>Aloittaa uuden pelin.</dd>
+    <dt>Peli &gt; Lataa peli (Ctrl+O) ja Tallenna peli (Ctrl+S)</dt>
+    <dd>Lataa tai tallentaa pelin .mahjongg-tiedostoon. Tallennus sisältää
+    myös peliajan, alkuperäisen jaon ja kumoamishistorian. Tallenna nimellä tallentaa
+    pelin uuteen tiedostoon.</dd>
+    <dt>Peli &gt; Aloita sama peli alusta tai työkalurivin Alusta</dt>
+    <dd>Palauttaa saman alkuperäisen jaon ja aloittaa ajan alusta.</dd>
+    <dt>Muokkaa &gt; Kumoa (Ctrl+Z) tai Kumoa &gt; Kumoa siirto</dt>
+    <dd>Palauttaa viimeksi poistetun parin. Voit kumota useita pareja.
+    Sama toiminto on työkalurivin Kumoa-painikkeessa.</dd>
+    <dt>Ohje &gt; Näytä siirto</dt>
+    <dd>Korostaa yhden mahdollisen parin keltaisella.</dd>
+    <dt>Ohje &gt; Laattoja jäljellä</dt>
+    <dd>Näyttää jäljellä olevien laattojen määrän.</dd>
+    <dt>Ohje &gt; Sekoita</dt>
+    <dd>Sekoittaa jäljellä olevat laatat. Onnistunut sekoitus on
+    ratkaistavissa ja tyhjentää kumoamishistorian. Jos ratkaisujärjestystä
+    ei löydy, tilanne säilyy ennallaan; kumoa siirtoja ja yritä uudelleen.</dd>
+    <dt>Ohje &gt; Ohjeen sisältö</dt>
+    <dd>Avaa asennetun CHM-ohjeen.</dd>
+    <dt>Erikoistoiminnot &gt; Tauko (Alt+P)</dt>
+    <dd>Pysäyttää peliajan ja näyttää liikkuvan kuvion. Paina OK jatkaaksesi.</dd>
+    <dt>Erikoistoiminnot &gt; Näytä kunniataulu</dt>
+    <dd>Näyttää kymmenen nopeinta suoritusta, peliajat sekä vihjeiden,
+    kumoamisten ja sekoitusten määrät. Kaikki voitot kelpaavat listalle,
+    myös apuja käytettäessä. Listalle pääsevältä pelaajalta kysytään nimi.</dd>
+    <dt>Erikoistoiminnot &gt; Tyhjennä kunniataulu</dt>
+    <dd>Tyhjentää koko tuloslistan vahvistuksen jälkeen.</dd>
+  </dl>
+
+  <h2>Vinkkejä</h2>
+  <p>Jokaisella uudella pelillä on vähintään yksi ratkaisu, mutta kaikki
+  valinnat eivät johda voittoon. Vihje näyttää mahdollisen siirron, ei
+  välttämättä voittavaa siirtoa. Jos siirrot loppuvat, kumoa tai sekoita
+  jäljellä olevat laatat. Kun siirrot loppuvat, peli kysyy, haluatko
+  aloittaa saman jaon uudelleen. Voiton jälkeen voit aloittaa uuden pelin
+  tai lopettaa. Noin kuuden sekunnin voittoanimaatio ei kerrytä peliaikaa.</p>
+  <p>Peliaika näkyy tilarivillä. Se pysähtyy tauon ajaksi ja pelin ollessa
+  suljettuna. Kun suljet keskeneräisen pelin, voit tallentaa sen, sulkea
+  tallentamatta tai peruuttaa sulkemisen. Sama kysymys suojaa keskeneräistä
+  peliä myös uutta peliä aloitettaessa tai toista ladattaessa.</p>
+  <p>Äänet ja muut vielä harmaana näkyvät valikkotoiminnot eivät ole
+  käytettävissä tässä versiossa.</p>
+</main>
+</body>
+</html>
