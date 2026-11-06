@@ -89,13 +89,23 @@ Those tests use a temporary registry key, not the game's Hall of Fame.
 
 ## Documentation
 
-The English help starts at [Welcome](help/en.html) and includes
-[getting started](help/getting-started.html), [rules](help/rules.html),
-[feature reference](help/commands.html), [configuration](help/settings.html),
-[examples](help/workflows.html), [troubleshooting and FAQ](help/troubleshooting.html),
-[technical information](help/technical.html), and [release notes](help/release-notes.html).
-The Finnish guide is [here](help/fi.html). Open the appropriate CHM from
-**Help > Help Contents** in the game.
+The English and Finnish guides cover the same topics, with a table of contents
+and keyword index in each compiled CHM. Open the guide from
+**Help > Help Contents** or **Ohje > Ohjeen sisältö**, depending on the
+installed language. The HTML sources are also available here:
+
+- **English:** [Welcome](help/en.html), [getting started](help/getting-started.html),
+  [rules](help/rules.html), [features](help/commands.html),
+  [configuration](help/settings.html), [examples and tips](help/workflows.html),
+  [troubleshooting and FAQ](help/troubleshooting.html),
+  [technical information](help/technical.html), [release notes](help/release-notes.html),
+  and [credits](help/credits.html).
+- **Suomi:** [Tervetuloa](help/fi.html), [aloittaminen](help/fi-getting-started.html),
+  [säännöt](help/fi-rules.html), [toiminnot](help/fi-commands.html),
+  [asetukset](help/fi-settings.html), [esimerkit ja vinkit](help/fi-workflows.html),
+  [vianmääritys ja usein kysytyt kysymykset](help/fi-troubleshooting.html),
+  [tekniset tiedot](help/fi-technical.html), [versiotiedot](help/fi-release-notes.html)
+  ja [tekijätiedot](help/fi-credits.html).
 
 ## Screenshots
 

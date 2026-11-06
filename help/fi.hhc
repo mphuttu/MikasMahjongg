@@ -1,8 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<HTML><HEAD><meta name="GENERATOR" content="Microsoft HTML Help Workshop"></HEAD>
+<HTML><HEAD><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft HTML Help Workshop"></HEAD>
 <BODY><UL>
-<LI><OBJECT type="text/sitemap">
-<param name="Name" value="Peliohje">
-<param name="Local" value="fi.html">
-</OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Tervetuloa"><param name="Local" value="fi.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Aloittaminen"><param name="Local" value="fi-getting-started.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="S&#228;&#228;nn&#246;t ja laattojen yhdist&#228;minen"><param name="Local" value="fi-rules.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Toiminnot"><param name="Local" value="fi-commands.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Asetukset ja mukauttaminen"><param name="Local" value="fi-settings.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Esimerkkej&#228; ja vinkkej&#228;"><param name="Local" value="fi-workflows.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Vianm&#228;&#228;ritys ja usein kysytyt kysymykset"><param name="Local" value="fi-troubleshooting.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Tekniset tiedot"><param name="Local" value="fi-technical.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Versiotiedot"><param name="Local" value="fi-release-notes.html"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Tekij&#228;tiedot"><param name="Local" value="fi-credits.html"></OBJECT>
 </UL></BODY></HTML>

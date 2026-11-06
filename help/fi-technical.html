@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fi"><head><meta charset="utf-8">
+<title>Tekniset tiedot</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Tekniset tiedot</h1>
+<dl>
+<dt>Alusta</dt><dd>Asennusohjelma on tarkoitettu 64-bittiselle Windows 10:lle
+tai uudemmalle. Sovellus käyttää MFC:tä, Direct2D:tä, Windows Imaging
+Componentia ja Microsoft Visual C++ -ajonaikaista ympäristöä.
+Asennusohjelma sijoittaa MFC- ja C++-ajonaikaiset DLL-tiedostot paikallisesti.</dd>
+<dt>Tallennetut pelit</dt><dd><code>.mahjongg</code>-tiedostot sisältävät
+versionumerollisen tekstiesityksen jaosta, pelitilanteesta, kumoamishistoriasta
+ja tilastoista. Peli tarkistaa sisällön ennen lataamista. Älä muokkaa
+tiedostoja käsin.</dd>
+<dt>Tulokset ja asetukset</dt><dd>Kunniataulu tallennetaan nykyisen
+Windows-käyttäjän rekisteriin. Myös työkaluriviasetukset ja viimeksi avattujen
+tiedostojen luettelot ovat käyttäjäkohtaisia; asetukset on erotettu
+käyttöliittymäkielen mukaan.</dd>
+<dt>Kuvat ja ohjeet</dt><dd>PNG-laattakuvat ladataan ohjelmatiedoston vieressä
+olevasta <code>res\tiles</code>-kansiosta. Myös molempien CHM-tiedostojen ja
+<code>language.ini</code>-tiedoston odotetaan olevan ohjelman rinnalla.</dd>
+<dt>Rakenne</dt><dd>Pelimalli huolehtii laattojen yhdistämisestä ja jaoista.
+MFC-dokumentti omistaa pelin ja kellon, ja Direct2D-näkymä piirtää pelialueen
+ja käsittelee syötteet. Sovellus on työpöydällä pelattava yksinpeli.</dd>
+</dl>
+<p class="related"><strong>Aiheeseen liittyvää:</strong>
+<a href="fi-troubleshooting.html">Vianmääritys</a> |
+<a href="fi-credits.html">Tekijätiedot</a> |
+<a href="fi-release-notes.html">Versiotiedot</a></p></body></html>
